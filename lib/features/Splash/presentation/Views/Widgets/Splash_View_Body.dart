@@ -1,8 +1,29 @@
 import 'package:bookly_app/features/Splash/data/utils/assets.dart';
+import 'package:bookly_app/features/Splash/presentation/Views/Widgets/sliding_image.dart';
+import 'package:bookly_app/features/Splash/presentation/Views/Widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody>with SingleTickerProviderStateMixin {
+late  AnimationController animationController;
+late  Animation<Offset> slidingAnimation;
+late  Animation<Offset> slidingAnimation2;
+  @override
+  void initState() {
+    super.initState();
+   
+    animationController = AnimationController(vsync: this,duration: const Duration(seconds: 2) );
+   
+   slidingAnimation=Tween<Offset>(begin: const Offset(3, 0), end: const Offset(0, 0)).animate(animationController);
+   slidingAnimation2=Tween<Offset>(begin: const Offset(-3, 0), end: const Offset(0, 0)).animate(animationController);
+    animationController.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +32,14 @@ class SplashViewBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset(AppAssets.splashLogo,
-              width: 100, height: 100, color: Colors.white),
-          const Text("Bookly",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              )),
+          Slidingimage(animationController: animationController, slidingAnimation2: slidingAnimation2),
+          SlidingText(slidingAnimation: slidingAnimation),
         ],
       ),
     );
   }
 }
+
+
+
+
