@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/Splash/data/utils/assets.dart';
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class Slidingimage extends StatelessWidget {
