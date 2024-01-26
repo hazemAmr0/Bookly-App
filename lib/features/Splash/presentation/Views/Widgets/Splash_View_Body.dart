@@ -3,9 +3,7 @@ import 'package:bookly_app/features/Home/presentation/views/home_view.dart';
 import 'package:bookly_app/features/Splash/presentation/Views/Widgets/sliding_image.dart';
 import 'package:bookly_app/features/Splash/presentation/Views/Widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -14,20 +12,17 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>with SingleTickerProviderStateMixin {
-late  AnimationController animationController;
-late  Animation<Offset> slidingAnimation;
-late  Animation<Offset> slidingAnimation2;
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+  late Animation<Offset> slidingAnimation2;
   @override
   void initState() {
     super.initState();
     initSlidingAnimation();
     NavigateToHome();
   }
-
- 
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +31,27 @@ late  Animation<Offset> slidingAnimation2;
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Slidingimage(animationController: animationController, slidingAnimation2: slidingAnimation2),
+          Slidingimage(
+              animationController: animationController,
+              slidingAnimation2: slidingAnimation2),
           SlidingText(slidingAnimation: slidingAnimation),
         ],
       ),
     );
   }
+
   void NavigateToHome() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const HomeView(),
-          transition: Transition.fadeIn, duration: kPrimaryDuration);
-    });
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        GoRouter.of(context).push(homeView);
+        // Get.to(() => const HomeView(),
+        //     transition: Transition.fadeIn, duration: kPrimaryDuration);
+      },
+    );
   }
-    void initSlidingAnimation() {
+
+  void initSlidingAnimation() {
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
 
@@ -61,7 +64,3 @@ late  Animation<Offset> slidingAnimation2;
     animationController.forward();
   }
 }
-
-
-
-

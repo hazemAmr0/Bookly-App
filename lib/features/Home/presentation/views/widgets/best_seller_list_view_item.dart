@@ -51,7 +51,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '19.99\$',
+                      '10.99\$',
                       style: Styles.textStyleNormal20,
                     ),
                     BookRate(),
