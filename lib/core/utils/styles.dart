@@ -26,6 +26,7 @@ static const textStyleMedium16 = TextStyle(
   
 static const textStyleNormal30 = TextStyle(
     fontSize: 30,
-    fontWeight: FontWeight.normal,
+    
+    fontWeight: FontWeight.bold,
   );
 }
