@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/custom_button.dart';
+
 import 'package:bookly_app/features/Home/presentation/views/widgets/Books_actions.dart';
 import 'package:bookly_app/features/Home/presentation/views/widgets/book_rate.dart';
 import 'package:bookly_app/features/Home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -33,11 +33,31 @@ class BookDetailsViewBody extends StatelessWidget {
           const BookRate(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           const BooksActions(),
+          const SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                " You can also like",
+                style:
+                    Styles.textStyleNormal14.copyWith(fontWeight: FontWeight.w600),
+              ),
+              
+            ),
+          ),
+          SizedBox(height: 10, ),
+         Padding(
+           padding: const EdgeInsets.symmetric(horizontal: 9),
+           child: const SimilarBooksListView(),
+         ),
+         SizedBox(
+            height: 30,
+          ),
         ],
       ),
     );
   }
 }
-
