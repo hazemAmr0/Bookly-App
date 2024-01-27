@@ -5,3 +5,4 @@ const kPrimaryDuration=Duration(milliseconds: 250);
 const splashView="/";
 const homeView="/home";
 const bookDetailsView="/book_details";
+const searchView="/search";
