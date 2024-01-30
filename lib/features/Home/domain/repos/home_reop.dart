@@ -6,4 +6,3 @@ abstract class HomeRepo {
   Future<Either<Failure, List<BookEntity>>> getFeaturedBooks();
   Future<Either<Failure, List<BookEntity>>> getNewestBooks();
 }
-

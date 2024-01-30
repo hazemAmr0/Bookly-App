@@ -48,9 +48,10 @@ class BestSellerListViewItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       )),
                   const SizedBox(height: 3),
-                   Text(
+                  Text(
                     'J.K.Rowling',
-                    style: Styles.textStyleNormal14.copyWith(color: Colors.grey[400]),
+                    style: Styles.textStyleNormal14
+                        .copyWith(color: Colors.grey[400]),
                   ),
                   const SizedBox(height: 3),
                   const Row(
@@ -72,4 +73,3 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
-

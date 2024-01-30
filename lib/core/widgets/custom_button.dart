@@ -5,12 +5,16 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
-    required this.backgroundColor, this.borderRadius, required this.text, required this.textColor, required Null Function() onPressed,
+    required this.backgroundColor,
+    this.borderRadius,
+    required this.text,
+    required this.textColor,
+    required Null Function() onPressed,
   }) : super(key: key);
-final Color textColor;
-final String text;
-final Color backgroundColor;
-final BorderRadius? borderRadius; 
+  final Color textColor;
+  final String text;
+  final Color backgroundColor;
+  final BorderRadius? borderRadius;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,15 +22,15 @@ final BorderRadius? borderRadius;
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor,
-      
           shape: RoundedRectangleBorder(
-            borderRadius:borderRadius??  BorderRadius.circular(16),
+            borderRadius: borderRadius ?? BorderRadius.circular(16),
           ),
         ),
-      onPressed: (){},
-       child:  Text (text,
-       style:Styles.textStyleSemiBold18.copyWith(color: textColor),
-       ),
+        onPressed: () {},
+        child: Text(
+          text,
+          style: Styles.textStyleSemiBold18.copyWith(color: textColor),
+        ),
       ),
     );
   }
