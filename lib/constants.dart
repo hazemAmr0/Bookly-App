@@ -6,3 +6,5 @@ const splashView = "/";
 const homeView = "/home";
 const bookDetailsView = "/book_details";
 const searchView = "/search";
+const featuredBox='Featured_Box';
+const newestBox='Newest_Box';
